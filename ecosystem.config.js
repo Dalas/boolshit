@@ -10,8 +10,13 @@ module.exports = {
       name      : "course-project",
       script    : "./main.py",
       interpreter: "python3",
-      env: {
-        COMMON_VARIABLE: "true"
+      "post_update": ["./builder.sh"],
+      "env_webhook": {
+        "port": 8889,
+        "path": "/webhook",
+        "secret": "KHNUofRE",
+        "pre_hook": "",
+        "post_hook": ""
       }
     }
   ],
@@ -22,23 +27,11 @@ module.exports = {
    */
   deploy : {
     production : {
-      user : "node",
-      host : "212.83.163.1",
+      user : "ubuntu",
+      host : "54.93.172.29",
       ref  : "origin/master",
-      repo : "git@github.com:repo.git",
-      path : "/var/www/production",
-      "post-deploy" : "npm install && pm2 startOrRestart ecosystem.json --env production"
-    },
-    dev : {
-      user : "node",
-      host : "212.83.163.1",
-      ref  : "origin/master",
-      repo : "git@github.com:repo.git",
-      path : "/var/www/development",
-      "post-deploy" : "npm install && pm2 startOrRestart ecosystem.json --env dev",
-      env  : {
-        NODE_ENV: "dev"
-      }
+      repo : "git@github.com:Dalas/course-project.git",
+      path : "/srv/course-project"
     }
   }
-}
+};
