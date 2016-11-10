@@ -10,7 +10,7 @@ module.exports = {
       name      : "course-project",
       script    : "./main.py",
       interpreter: "python3",
-      "post_update": ["./builder.sh"],
+      post_update: ["./builder.sh"],
       "env_webhook": {
         "port": "8889",
         "path": "/webhook",
