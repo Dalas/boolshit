@@ -5,7 +5,7 @@ import os
 def import_data():
     path = os.path.abspath('controller/scripts/test.csv')
     with open(path) as csvfile:
-        reader = csv.reader(csvfile, delimiter=',', quotechar='\n')
+        reader = csv.reader(csvfile, delimiter=',', quotechar='\n', encoding='utf-8')
         result = []
 
         for row in reader:
