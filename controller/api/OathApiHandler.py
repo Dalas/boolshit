@@ -13,7 +13,7 @@ class OathApiHandler(BaseAPIHandler):
     def get(self):
         flow = flow_from_clientsecrets('credentials/client_secrets.json',
                                        scope='https://www.googleapis.com/auth/userinfo.email',
-                                       redirect_uri='http://educational-space.com:8888/login')
+                                       redirect_uri='http://edu-space.com:8888/login')
         if 'code' not in self.request.arguments.keys():
             url = flow.step1_get_authorize_url()
             self.redirect(url)
