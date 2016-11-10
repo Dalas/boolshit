@@ -9,6 +9,7 @@ module.exports = {
     {
       name      : "course-project",
       script    : "./main.py",
+      interpreter: "python3",
       env: {
         COMMON_VARIABLE: "true"
       }
