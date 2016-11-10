@@ -1,0 +1,26 @@
+{% extends 'BaseTemplate.html' %}
+
+{% block title %}Error auth{% end %}
+
+
+{% block content %}
+<div class="custom-wrapper">
+    <div class="row" style="padding: 0 20px;">
+        <div class="row col-sm-12">
+            <p class="red-text error-block">
+                {{ error }}
+            </p>
+        </div>
+    </div>
+</div>
+{% end %}
+
+{% block bottom_scripts %}
+<script>
+
+    window.setTimeout(function () {
+        window.location.href = "/";
+    }, 2500);
+
+</script>
+{% end %}

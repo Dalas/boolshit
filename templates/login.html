@@ -1,0 +1,50 @@
+<link href="../static/css/login.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="../static/js/parsley.js"></script>
+<hgroup>
+    <h1>Course project constructor</h1>
+    <h3>Test version 0.0.1</h3>
+</hgroup>
+<form id="registration-form" action="/sign_in" method="post" enctype="multipart/form-data" role="form"
+      data-parsley-validate="">
+    {% if error %}
+    <p style="color: red">{{ error }}</p>
+    <p></p>
+    {% end %}
+    <div class="group">
+
+
+        {% if user_email %}
+        <input name="email" required data-parsley-trigger="focusout focusin"
+               data-parsley-email
+               value="{{ user_email }}" type="email">
+        {% else %}
+        <input name="email" equired data-parsley-trigger="focusout focusin"
+               data-parsley-email type="email">
+        {% end %}
+        <span class="highlight"></span><span class="bar"></span>
+        <label>Email</label>
+    </div>
+    <div class="group">
+        <input required name="password" type="password"><span class="highlight"></span><span class="bar"></span>
+        <label>Password</label>
+    </div>
+    <button type="submit" id="submit" name="submit" class="button buttonBlue">Sign In
+        <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+    </button>
+    <a href="/login" type="button" class="button buttonBlue">Sign In by Google account
+        <div class="ripples buttonRipples">
+            <span class="ripplesCircle">
+{#                <a  > </a>#}
+            </span>
+        </div>
+    </a>
+</form>
+<footer><a href="http://www.polymer-project.org/" target="_blank"><a href="http://nure.ua/" target="_blank"><img
+        src="../static/img/nure_logo.png"></a>
+    <p>Read more on <a href="http://www.nure.ua/" target="_blank">NURE.UA</a></p>
+</footer>
+
+<script src="../static/js/login.js"></script>

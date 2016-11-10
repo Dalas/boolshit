@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Course project constructor</title>
+
+    <link href="../static/css/bootstrap.grid.css" rel="stylesheet">
+    <link href="../static/css/materialize.min.css" rel="stylesheet">
+    <link href="../static/css/styles.css" rel="stylesheet">
+
+    <script src="../static/js/jq.js"></script>
+    <script src="../static/js/init.js"></script>
+    <script src="../static/js/materialize.min.js"></script>
+    <!--{% block head %}{% end %}-->
+</head>
+
+<body>
+    <nav class="teal lighten-1" role="navigation">
+        <div class="nav-wrapper container-big"><a id="logo-container" href="/" class="brand-logo">Digital Education</a>
+            {% if user %}
+                <ul class="right hide-on-med-and-down">
+                    <li class="waves-effect waves-light"><a href="#">About Us</a></li>
+                    <li class="waves-effect waves-light"><a href="/upload_project">Upload my project</a></li>
+                    <li class="waves-light">
+                        <a style="max-height: 64px;" href="/account">
+                            <img class="user-icon-image" src="{{ user['image_url'] }}" height="50" />
+                        </a>
+                    </li>
+                    <li class="waves-effect waves-light"><a href="/sign_out">Logout</a></li>
+                </ul>
+
+                <ul id="nav-mobile" class="side-nav">
+                    <li><a href="#">Navbar Link</a></li>
+                </ul>
+                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+            {% else %}
+                <ul class="right hide-on-med-and-down">
+                    <li class="waves-effect waves-light"><a href="#">About Us</a></li>
+                    <li class="waves-effect waves-light"><a href="/login">Login</a></li>
+                </ul>
+
+                <ul id="nav-mobile" class="side-nav">
+                    <li><a href="#">Navbar Link</a></li>
+                    <li><a href="/login">Login</a></li>
+                </ul>
+                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+            {% end if %}
+        </div>
+    </nav>
+
+    <div class="container-big">
+        {% block content %}
+
+        {% end %}
+    </div>
+
+    {% block bottom_scripts %}
+
+    {% end %}
+
+    <footer class="page-footer teal">
+        <div class="container-big">
+            <div class="row shades-text text-white">
+                Nure
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

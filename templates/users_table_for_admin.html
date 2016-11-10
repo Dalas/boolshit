@@ -1,0 +1,38 @@
+{% extends 'home.html' %}
+
+{% block title %}Account info{% end %}
+
+
+{% block content %}
+<div class="custom-wrapper">
+    <div class="row" style="padding: 0 20px;">
+        <div class="row col-sm-12">
+            <div class="panel-heading row"><h2>Users</h2></div>
+
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>First name</th>
+                        <th>Last name</th>
+                        <th>E-mail</th>
+                        <th>Group</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for current_user in users %}
+                        <tr>
+                            <td>{{ current_user['first_name'] }}</td>
+                            <td>{{ current_user['last_name'] }}</td>
+                            <td>{{ current_user['email'] }}</td>
+                            <td>{{ current_user['group'] }}</td>
+                        </tr>
+                    {% end %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% end %}
+
+{% block bottom_scripts %}
+{% end %}

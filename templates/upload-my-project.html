@@ -1,0 +1,41 @@
+{% extends 'BaseTemplate.html' %}
+
+{% block title %}Upload project{% end %}
+
+
+{% block content %}
+<div class="custom-wrapper">
+    <div class="row" style="padding: 0 20px;">
+        <div class="row col-sm-12">
+            <form id="upload-form" action="/" method="post" content="multipart/form-data">
+                <div class="file-field input-field">
+                    <div class="btn">
+                        <span>File</span>
+                        <input id="input-file" type="file" />
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text" />
+                    </div>
+                </div>
+                <button class="waves-effect waves-light btn" type="button" onclick="send_form()">Upload</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% end %}
+
+{% block bottom_scripts %}
+<script>
+    function send_form() {
+        var file = $('#input-file');
+        var form_data = new FormData();
+        form_data.append('file', file.files[0]);
+
+        $.ajax({method: 'post', url: 'api/v1/upload_doc', data: {'file': form_data}}).done(function(data){
+            alert('Сакесфул!')
+        }).error(function(data){
+            console.log(data)
+        })
+    }
+</script>
+{% end %}

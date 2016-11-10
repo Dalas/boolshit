@@ -1,0 +1,53 @@
+<link href="../static/css/login.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="../static/js/parsley.js"></script>
+<hgroup>
+  <h1>Course project constructor</h1>
+  <h3>Test version 0.0.1</h3>
+</hgroup>
+<form id="registration-form" action="/sign_up" method="post" enctype="multipart/form-data" role="form"
+              data-parsley-validate="" >
+    {% if error %}
+        <p style="color: red">{{ error }}</p>
+        <p></p>
+    {% end %}
+    {% raw xsrf_form_html() %}
+
+  <div class="group">
+    <input value="{{ user_data['first_name'] }}" name="first_name" required type="text"><span class="highlight"></span><span class="bar"></span>
+    <label>First name</label>
+  </div>
+  <div class="group">
+    <input value="{{ user_data['last_name'] }}" name="last_name" required type="text"><span class="highlight"></span><span class="bar"></span>
+    <label>Last Name</label>
+  </div>
+    <div class="group">
+    <input value="{{ user_data['email'] }}" name="email" data-parsley-trigger="focusout focusin"
+                       data-parsley-email type="email"><span class="highlight"></span><span class="bar"></span>
+    <label>Email</label>
+  </div>
+    <div class="group">
+    <input name="password1" id="password1" data-parsley-trigger="focusout"
+                                    data-parsley-pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,20}$"
+                                    data-parsley-pattern-message="Passwords must be 8 to 20 characters long, containing numbers and uppercase, lowercase letters."
+
+           required type="password"><span class="highlight"></span><span class="bar"></span>
+    <label>Password</label>
+  </div>
+    <div class="group">
+    <input name="password2" id='re-password' type="password" autocomplete="off" required
+                       data-parsley-equalto="#password1"><span class="highlight"></span><span class="bar"></span>
+    <label>Re-password</label>
+  </div>
+  <button  type="submit" id="submit" name="submit"  class="button buttonBlue">Sign up
+    <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+  </button>
+
+</form>
+<footer><a href="http://nure.ua/" target="_blank"><img src="../static/img/nure_logo.png"></a>
+  <p>Read more on <a href="http://www.nure.ua/" target="_blank">NURE.UA</a></p>
+</footer>
+
+<script src="../static/js/login.js"></script>

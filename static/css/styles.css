@@ -1,0 +1,52 @@
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    position: relative;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.no-padding {
+    padding: 0;
+}
+
+.container-big {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.user-icon-image {
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.margin-bottom-sm-1 {
+    margin-bottom: 10px !important;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.error-block {
+    padding: 10px 5px;
+    background: rgba(255, 0, 0, 0.1);
+    border: 1px solid red;
+    border-radius: 3px;
+}
