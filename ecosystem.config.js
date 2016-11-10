@@ -12,7 +12,7 @@ module.exports = {
       interpreter: "python3",
       "post_update": ["./builder.sh"],
       "env_webhook": {
-        "port": 8889,
+        "port": "8889",
         "path": "/webhook",
         "secret": "KHNUofRE",
         "pre_hook": "",
